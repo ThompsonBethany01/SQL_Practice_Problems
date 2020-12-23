@@ -86,3 +86,57 @@ When ordered alphabetically, the CITY names are listed as ABC, DEF, PQRS, and WX
 Note
 You can write two separate queries to get the desired output. It need not be a single query.
 */
+(SELECT city, LENGTH(city) as char_length
+FROM STATION
+ORDER BY LENGTH(city), city
+LIMIT 1)
+UNION ALL
+(SELECT city, LENGTH(city) as char_length
+FROM STATION
+ORDER BY LENGTH(city) desc, city
+LIMIT 1);
+
+/*
+Weather Observation Station 6
+Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT(city)
+FROM station
+WHERE city LIKE ('a%') or city LIKE ('e%') or city LIKE ('i%') or city LIKE ('o%') or city LIKE ('u%');
+
+/*
+Weather Observation Station 7
+Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT(city)
+FROM station
+WHERE city LIKE ('%a') or city LIKE ('%e') or city LIKE ('%i') or city LIKE ('%o') or city LIKE ('%u');
+
+/*
+Weather Observation Station 8
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT(city)
+FROM station
+WHERE city LIKE ('a%a') or city LIKE ('a%e') or city LIKE ('a%i') or city LIKE ('a%o') or city LIKE ('a%u') or city LIKE ('e%a') or city LIKE ('e%e') or city LIKE ('e%i') or city LIKE ('e%o') or city LIKE ('e%u') or city LIKE ('i%a') or city LIKE ('i%e') or city LIKE ('i%i') or city LIKE ('i%o') or city LIKE ('i%u') or city LIKE ('o%a') or city LIKE ('o%e') or city LIKE ('o%i') or city LIKE ('o%o') or city LIKE ('o%u') or city LIKE ('u%a') or city LIKE ('u%e') or city LIKE ('u%i') or city LIKE ('u%o') or city LIKE ('u%u');
+
+/*
+Weather Observation Station 9
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT(city)
+FROM station
+WHERE city NOT LIKE ('a%') AND city NOT LIKE ('e%') AND city NOT LIKE ('i%') AND city NOT LIKE ('o%') AND city NOT LIKE ('u%');
+
+/*
+Weather Observation Station 10
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT(city)
+FROM station
+WHERE city NOT LIKE ('%a') AND city NOT LIKE ('%e') AND city NOT LIKE ('%i') AND city NOT LIKE ('%o') AND city NOT LIKE ('%u');
+
+# SQL Basic Select - HackerRank Star 3
+/*
+Weather Observation Station 11
+*/
