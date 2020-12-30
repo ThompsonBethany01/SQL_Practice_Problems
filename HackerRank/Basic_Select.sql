@@ -139,4 +139,42 @@ WHERE city NOT LIKE ('%a') AND city NOT LIKE ('%e') AND city NOT LIKE ('%i') AND
 # SQL Basic Select - HackerRank Star 3
 /*
 Weather Observation Station 11
+Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
 */
+SELECT DISTINCT(city)
+FROM station
+WHERE city REGEXP '^[^aeiouAEIOU]' or city REGEXP '[^aeiouAEIOU]$';
+
+/*
+Weather Observation Station 12
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT(city)
+FROM station
+WHERE city REGEXP '^[^aeiouAEIOU]' AND city REGEXP '[^aeiouAEIOU]$';
+
+/*
+Higher Than 75 Marks
+Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+*/
+SELECT name
+FROM students
+WHERE marks > 75
+ORDER BY substr(name, -3, 3), ID;
+
+/*
+Employee Names
+Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+*/
+SELECT name
+FROM employee
+ORDER BY name;
+
+/*
+Employee Salaries
+Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than 2000 per month who have been employees for less than 10 months. Sort your result by ascending employee_id.
+*/
+SELECT name
+FROM employee
+WHERE (salary > 2000) AND (months < 10)
+ORDER BY employee_id;
