@@ -178,3 +178,13 @@ SELECT name
 FROM employee
 WHERE (salary > 2000) AND (months < 10)
 ORDER BY employee_id;
+                                    
+/*
+Select by ID
+Query all columns for a city in CITY with the ID 1661.
+*/
+SELECT *
+FROM city
+WHERE id = 1661;
+                                    
+
